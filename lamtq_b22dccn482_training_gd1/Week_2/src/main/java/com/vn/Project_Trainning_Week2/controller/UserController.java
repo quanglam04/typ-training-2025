@@ -61,12 +61,12 @@ public class UserController extends BaseController {
     }
 
     @PutMapping("/update-user/{id}")
-    public ResponseEntity<ResponseDTO<?>> updateUser(@RequestBody RequestDTO requestUserDTO){
-        log.info(String.format("Cập nhật thông tin User với ID = %d", requestUserDTO.getId()));
-        User updatedUser = userService.updateUser(requestUserDTO);
+    public ResponseEntity<ResponseDTO<?>> updateUser(@RequestBody RequestDTO requestUserDTO, @PathVariable Long id){
+        log.info(String.format("Cập nhật thông tin User với ID = %d", id));
+        User updatedUser = userService.updateUser(requestUserDTO,id);
         ResponseDTO<Object> response = ResponseDTO.builder()
                 .code(HttpStatus.OK.value())
-                .message(String.format("Cập nhật thông tin User với ID = %d", requestUserDTO.getId()))
+                .message(String.format("Cập nhật thông tin User với ID = %d", id))
                 .data(updatedUser).build();
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
@@ -76,7 +76,7 @@ public class UserController extends BaseController {
         log.info(String.format("Xóa User với ID = %d",id));
         userService.deleteUser(id);
         ResponseDTO<Object> response = ResponseDTO.builder()
-                .code(HttpStatus.OK.value())
+                .code(HttpStatus.NO_CONTENT.value())
                 .message(String.format("Xóa User với ID = %d",id))
                 .data(null).build();
         return new ResponseEntity<>(response, HttpStatus.OK);

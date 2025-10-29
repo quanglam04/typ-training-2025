@@ -41,5 +41,5 @@ Trong bài này sử dụng file cấu hình application.yml logback-spring.xml
 
 # Phần 2: Tích hợp Database (ORM)
 
-📂 [Video Demo](https://drive.google.com/file/d/1gIilFvD_-ESUGnchqHuUJ1982V7S6lZ6/view?usp=sharing)
+📂 [Video Demo](https://drive.google.com/file/d/1RhwdK3DtQWNi7eWxpfokwwT3yl0FTfS2/view?usp=sharing)
 
